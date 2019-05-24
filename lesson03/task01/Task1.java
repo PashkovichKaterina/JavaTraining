@@ -13,4 +13,4 @@ public class Task1{
 		Printer.print(kelvin + " Kelvin = " + Converter.convertKelvinToCelsius(celsius) + " Celsius");
 		Printer.print(kelvin + " Kelvin = " + Converter.convertKelvinToFahrenheit(celsius) + " Fahrenheit");
 	}
-}
+} 
