@@ -6,6 +6,6 @@ public class QuadrateLogic{
 
 	//26_2
 	public static double calcSquare(double a){
-		return Math.pow(a, 2);
+		return a * a;
 	}
 }
