@@ -1,27 +1,49 @@
 public class NumberLogic{
-	public static int calcDigit(int number, int position){
-		return (int)(number / Math.pow(10, position - 1) % 10);
-	}
-	
-	public static double arithmeticAverage(int number){
-		int digit1 = calcDigit(number, 1);
-		int digit2 = calcDigit(number, 2);
-		int digit3 = calcDigit(number, 3);
-		int digit4 = calcDigit(number, 4);
-		int digit5 = calcDigit(number, 5);
-		int digit6 = calcDigit(number, 6);
 
-		return (digit1 + digit2 + digit3 + digit4 + digit5 + digit6) / 6.0;
+	//count of digits in number
+	private static final int COUNT = 6;
+
+	public static double arithmeticAverage(int number){
+		int digit1 = number % 10;
+		number /= 10;
+
+		int digit2 = number % 10;
+		number /= 10;
+
+		int digit3 = number % 10;
+		number /= 10;
+
+		int digit4 = number % 10;
+		number /= 10;
+
+		int digit5 = number % 10;
+		number /= 10;
+
+		int digit6 = number % 10;
+		number /= 10;
+
+		return (digit1 + digit2 + digit3 + digit4 + digit5 + digit6) / (double)COUNT;
 	}
 	
 	public static double geometricalAverage(int number){
-		int digit1 = calcDigit(number, 1);
-		int digit2 = calcDigit(number, 2);
-		int digit3 = calcDigit(number, 3);
-		int digit4 = calcDigit(number, 4);
-		int digit5 = calcDigit(number, 5);
-		int digit6 = calcDigit(number, 6);
+		int digit1 = number % 10;
+		number /= 10;
 
-		return Math.pow(digit1 * digit2 * digit3 * digit4 * digit5 * digit6, 1 / 6.0);
+		int digit2 = number % 10;
+		number /= 10;
+
+		int digit3 = number % 10;
+		number /= 10;
+
+		int digit4 = number % 10;
+		number /= 10;
+
+		int digit5 = number % 10;
+		number /= 10;
+
+		int digit6 = number % 10;
+		number /= 10;
+
+		return Math.pow(digit1 * digit2 * digit3 * digit4 * digit5 * digit6, 1 / (double)COUNT);
 	}
 }
