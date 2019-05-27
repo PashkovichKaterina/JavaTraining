@@ -2,27 +2,27 @@ public class CheckNumbers{
 
 	//1_1
 	public static boolean sameCouple(double a, double b, double c){
-		return (a == b) || (b == c) || (a == c);
+		return a == b || b == c || a == c;
 	}
 
 	//1_2
 	public static boolean oppositeCouple(double a, double b, double c){
-		return (a + b == 0) || (b + c == 0) || (a + c == 0);
+		return a + b == 0 || b + c == 0 || a + c == 0;
 	}
 
 	//2_1
 	public static boolean isPositive(double a, double b, double c){
-		return (a > 0) && (b > 0) && (c > 0);
+		return a > 0 && b > 0 && c > 0;
 	}
 
 	//2_2
 	public static boolean isNegative(double a, double b, double c){
-		return (a < 0) && (b < 0) && (c < 0);
+		return a < 0 && b < 0 && c < 0;
 	}
 
 	//3_1
 	public static boolean leastOneNegative(double a, double b, double c){
-		return (a < 0) || (b < 0) || (c < 0);
+		return a < 0 || b < 0 || c < 0;
 	}
 
 	//3_2
@@ -72,12 +72,16 @@ public class CheckNumbers{
 
 	//8_1
 	public static boolean oneEven(double a, double b, double c){
-		return ((a % 2 == 0) && (b % 2 != 0) && (c % 2 != 0)) || ((b % 2 == 0) && (a % 2 != 0) && (c % 2 != 0)) || ((c % 2 == 0) && (b % 2 != 0) && (a % 2 != 0));
+		return ((a % 2 == 0) && (b % 2 != 0) && (c % 2 != 0)) 
+			|| ((b % 2 == 0) && (a % 2 != 0) && (c % 2 != 0)) 
+			|| ((c % 2 == 0) && (b % 2 != 0) && (a % 2 != 0));
 	}
 
 	//8_2
 	public static boolean oneOdd(double a, double b, double c){
-		return ((a % 2 != 0) && (b % 2 == 0) && (c % 2 == 0)) || ((b % 2 != 0) && (a % 2 == 0) && (c % 2 == 0)) || ((c % 2 != 0) && (b % 2 == 0) && (a % 2 == 0));
+		return ((a % 2 != 0) && (b % 2 == 0) && (c % 2 == 0)) 
+			|| ((b % 2 != 0) && (a % 2 == 0) && (c % 2 == 0)) 
+			|| ((c % 2 != 0) && (b % 2 == 0) && (a % 2 == 0));
 	}
 
 	//9
@@ -117,7 +121,9 @@ public class CheckNumbers{
 
 	//16
 	public static boolean isRightTriangle(double a, double b, double c){
-		return isTriangle(a, b, c) && ((Math.pow(a, 2) == Math.pow(b, 2) + Math.pow(c, 2)) || Math.pow(b, 2) == Math.pow(a, 2) + Math.pow(c, 2) || Math.pow(c, 2) == Math.pow(b, 2) + Math.pow(a, 2));
+		return isTriangle(a, b, c) && (a * a == b * b + c * c
+					       || b * b == a * a + c * c 
+					       || c * c == b * b + a * a);
 	}
 
 	//17
@@ -142,13 +148,13 @@ public class CheckNumbers{
 
 	//31_1
 	public static double max(double a, double b, double c){
-		double max = (a > b) ? a : b;
-		return (c > max) ? c : max;
+		double max = a > b ? a : b;
+		return c > max ? c : max;
 	}
 
 	//31_2
 	public static double min(double a, double b, double c){
-		double min = (a < b) ? a : b;
-		return (c > min) ? c : min;
+		double min = a < b ? a : b;
+		return c > min ? c : min;
 	}
 }
