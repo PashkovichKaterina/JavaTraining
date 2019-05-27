@@ -1,7 +1,7 @@
 public class CircleLogic{
 	//28_1
 	public static double calcSquareAlongRadius(double r){
-		return Math.PI * Math.pow(r, 2);
+		return Math.PI * r * r;
 	}
 
 	//28_2
