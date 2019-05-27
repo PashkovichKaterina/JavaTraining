@@ -1,17 +1,26 @@
-public class NumberLogic{
-	public static int calcDigit(int number, int position){
-		return (int)(number / Math.pow(10, position - 1) % 10);
-	}
-	
+public class NumberLogic{	
 	public static int reverseNumber(int number){
-		int digit1 = calcDigit(number, 1);
-		int digit2 = calcDigit(number, 2);
-		int digit3 = calcDigit(number, 3);
-		int digit4 = calcDigit(number, 4);
-		int digit5 = calcDigit(number, 5);
-		int digit6 = calcDigit(number, 6);
-		int digit7 = calcDigit(number, 7);
+		int digit1 = number % 10 * 1_000_000;
+		number /= 10;
 
-		return (digit1 * 1000000) + (digit2 * 100000) + (digit3 * 10000) + (digit4 * 1000) + (digit5 * 100) + (digit6 * 10) + digit7;
+		int digit2 = number % 10 * 100_000;
+		number /= 10;
+
+		int digit3 = number % 10 * 10_000;
+		number /= 10;
+
+		int digit4 = number % 10 * 1_000;
+		number /= 10;
+
+		int digit5 = number % 10 * 100;
+		number /= 10;
+
+		int digit6 = number % 10 *10;
+		number /= 10;
+
+		int digit7 = number % 10;
+		number /= 10;
+
+		return digit1 + digit2 + digit3 + digit4 + digit5 + digit6 + digit7;
 	}
 }
