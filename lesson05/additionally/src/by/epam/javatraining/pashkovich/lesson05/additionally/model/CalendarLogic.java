@@ -34,7 +34,8 @@ public class CalendarLogic {
     public static boolean isValidDate(int day, int month, int year) {
         if ((day <= 0 || month <= 0 || year <= 0 || day > MAX_DAY_IN_MONTH || month > MAX_COUNT_OF_MONTH_)
                 || ((month == APRIL || month == JUNE || month == SEPTEMBER || month == NOVEMBER) && day == MAX_DAY_IN_MONTH)
-                || (month == FEBRUARY && ((isLeapYear(year) && day > DAY_IN_LEAP_YEAR) || (!isLeapYear(year) && day > DAY_IN_NOT_LEAP_YEAR)))) {
+                || (month == FEBRUARY && ((isLeapYear(year) && day > DAY_IN_LEAP_YEAR) 
+                                          || (!isLeapYear(year) && day > DAY_IN_NOT_LEAP_YEAR)))) {
             return false;
         }
         return true;
