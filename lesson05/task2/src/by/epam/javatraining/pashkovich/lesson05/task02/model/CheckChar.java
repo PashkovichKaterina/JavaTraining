@@ -17,16 +17,12 @@ public class CheckChar {
 
     public static boolean isVowelTwo(char c) {
         c = Character.toLowerCase(c);
-        if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') {
-            return true;
-        }
-        return false;
+        return c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u';
     }
 
     public static boolean isVowelThree(char c) {
         c = Character.toLowerCase(c);
-        String vowel = "aeiou";
-        return vowel.contains(Character.toString(c));
+        return "aeiou".contains(Character.toString(c));
     }
 
     public static boolean isVowelFour(char c) {
