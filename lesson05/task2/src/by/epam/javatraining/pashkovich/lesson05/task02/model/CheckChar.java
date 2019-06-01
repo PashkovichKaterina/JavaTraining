@@ -28,10 +28,7 @@ public class CheckChar {
     public static boolean isVowelFour(char c) {
         c = Character.toLowerCase(c);
         String vowel = "aeiou";
-        if (vowel.indexOf(c) == -1) {
-            return false;
-        }
-        return true;
+        return (vowel.indexOf(c) == -1)? false : true;
     }
 
     public static boolean isVowelFife(char c) {
