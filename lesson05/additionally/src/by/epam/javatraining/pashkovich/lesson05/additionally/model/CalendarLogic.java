@@ -10,7 +10,7 @@ public class CalendarLogic {
     //number of first day in month or first month in year
     final private static int FIRST = 1;
     final private static int MAX_DAY_IN_MONTH = 31;
-    final private static int MAX_COUNT_OF_MONTH_= 12;
+    final private static int MAX_COUNT_OF_MONTH = 12;
     final private static int DAY_IN_LEAP_YEAR = 29;
     final private static int DAY_IN_NOT_LEAP_YEAR = 28;
 
@@ -32,7 +32,7 @@ public class CalendarLogic {
     }
 
     public static boolean isValidDate(int day, int month, int year) {
-        if ((day <= 0 || month <= 0 || year <= 0 || day > MAX_DAY_IN_MONTH || month > MAX_COUNT_OF_MONTH_)
+        if ((day <= 0 || month <= 0 || year <= 0 || day > MAX_DAY_IN_MONTH || month > MAX_COUNT_OF_MONTH)
                 || ((month == APRIL || month == JUNE || month == SEPTEMBER || month == NOVEMBER) && day == MAX_DAY_IN_MONTH)
                 || (month == FEBRUARY && ((isLeapYear(year) && day > DAY_IN_LEAP_YEAR) 
                                           || (!isLeapYear(year) && day > DAY_IN_NOT_LEAP_YEAR)))) {
