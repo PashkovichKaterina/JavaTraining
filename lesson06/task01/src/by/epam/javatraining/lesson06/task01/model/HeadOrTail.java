@@ -9,7 +9,7 @@ public class HeadOrTail {
 
     public static String headsORTails(int steps) {
         String result = "Invalid data";
-        if(steps >= 0) {
+        if(steps > 0) {
             int head = 0;
             for (int i = 0; i < steps; ++i) {
                 if (random.nextInt(TAIL - HEAD + 1) == HEAD) {
