@@ -3,11 +3,12 @@ package by.epam.javatraining.lesson06.task01.model;
 import java.util.Random;
 
 public class HeadOrTail {
-    final private static int HEAD = 0;
-    final private static int TAIL = 1;
-    final private static Random random = new Random();
+    private static final int HEAD = 0;
+    private static final int TAIL = 1;
+    
 
     public static String headsORTails(int steps) {
+        Random random = new Random();
         String result = "Invalid data";
         if(steps > 0) {
             int head = 0;
