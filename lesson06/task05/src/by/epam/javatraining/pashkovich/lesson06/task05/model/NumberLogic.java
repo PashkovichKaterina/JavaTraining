@@ -2,17 +2,14 @@ package by.epam.javatraining.pashkovich.lesson06.task05.model;
 
 public class NumberLogic {
     public static boolean isSimple(int number) {
-        boolean result = true;
-        if (number >= 0) {
-            for (int i = 2; i <= number / 2; ++i) {
-                if (number % i == 0) {
-                    result = false;
-                    break;
-                }
-            }
-        } else {
-            result = false;
+        if (number <= 1) {
+            return false;
         }
-        return result;
+        for (int i = 2; i <= number / 2; ++i) {
+            if (number % i == 0) {
+                return false;
+            }
+        }
+        return true;
     }
 }
