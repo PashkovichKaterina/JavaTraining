@@ -1,27 +1,32 @@
 package by.epam.javatraining.pashkovich.lesson05.task03.model;
 
+import java.util.Random;
+
 public class MoodSensor {
-    final private static double BAD = 0.2;
-    final private static double SO_SO = 0.4;
-    final private static double GOOD = 0.6;
-    final private static double EXCELLENT = 0.9;
+    private static final int MOOD_NUMBER = 5;
+    private static final String TERRIBLE = "T_T";
+    private static final String BAD = ":(";
+    private static final String SO_SO = ":|";
+    private static final String GOOD = ":)";
+    private static final String EXCELLENT = "XD";
 
-    public static String moodRandom() {
-        double moodNumber = Randomizer.randomNumber();
-        return mood(moodNumber);
-    }
-
-    public static String mood(double moodNumber) {
-        String moodString = "T_T";
-        if (moodNumber >= BAD && moodNumber < SO_SO) {
-            moodString = ":(";
-        } else if (moodNumber >= SO_SO && moodNumber < GOOD) {
-            moodString = ":|";
-        } else if (moodNumber >= GOOD && moodNumber < EXCELLENT) {
-            moodString = ":)";
-        } else if (moodNumber >= EXCELLENT) {
-            moodString = "XD";
+    public static String checkMood() {
+        Random random = new Random();
+        String mood = EXCELLENT;
+        switch (random.nextInt(MOOD_NUMBER)) {
+            case 0:
+                mood = TERRIBLE;
+                break;
+            case 1:
+                mood = BAD;
+                break;
+            case 2:
+                mood = SO_SO;
+                break;
+            case 3:
+                mood = GOOD;
+                break;
         }
-        return moodString;
+        return mood;
     }
 }
