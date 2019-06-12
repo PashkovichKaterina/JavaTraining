@@ -9,7 +9,7 @@ public class HeadOrTailTest {
     @Test
     public void testHeadsORTails() {
         int steps = -20;
-        String expected = "Invalid data";
-        assertEquals(expected, HeadOrTail.headsORTails(steps));
+        int expected = 0;
+        assertEquals(expected, HeadOrTail.calcHead(steps));
     }
 }
