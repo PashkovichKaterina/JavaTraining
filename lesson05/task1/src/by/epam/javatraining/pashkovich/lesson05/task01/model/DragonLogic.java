@@ -17,40 +17,19 @@ public class DragonLogic {
 
         if (age >= 0) {
             heads = HEAD_IN_CHILD;
-            if (age > AGE_IN_YOUNG) {
-                heads += AGE_IN_YOUNG * HEAD_IN_CHILD;
-                if (age > AGE_IN_OLD) {
-                    heads += (AGE_IN_OLD - AGE_IN_YOUNG) * HEAD_IN_YOUNG + (age - AGE_IN_OLD) * HEAD_IN_OLD;
-                } else {
-                    heads += (age - AGE_IN_YOUNG) * HEAD_IN_YOUNG;
-                }
-            } else {
+            if (age <= AGE_IN_YOUNG) {
                 heads += age * HEAD_IN_CHILD;
+            } else if (age < AGE_IN_OLD) {
+                heads += AGE_IN_YOUNG * HEAD_IN_CHILD - AGE_IN_YOUNG * HEAD_IN_YOUNG + HEAD_IN_YOUNG * age;
+            } else {
+                heads += AGE_IN_YOUNG * HEAD_IN_CHILD + (AGE_IN_OLD - AGE_IN_YOUNG) 
+                            * HEAD_IN_YOUNG - AGE_IN_OLD * HEAD_IN_OLD + HEAD_IN_OLD * age;
             }
         }
-
         return heads;
     }
 
     public static int countEye(double age) {
-        age = Math.floor(age);
-
-        int eyes = -1;
-
-        if (age >= 0) {
-            eyes = HEAD_IN_CHILD * EYES_ON_HEAD;
-            if (age > AGE_IN_YOUNG) {
-                eyes += AGE_IN_YOUNG * HEAD_IN_CHILD * EYES_ON_HEAD;
-                if (age > AGE_IN_OLD) {
-                    eyes += ((AGE_IN_OLD - AGE_IN_YOUNG) * HEAD_IN_YOUNG + (age - AGE_IN_OLD) * HEAD_IN_OLD) * EYES_ON_HEAD;
-                } else {
-                    eyes += (age - AGE_IN_YOUNG) * HEAD_IN_YOUNG * EYES_ON_HEAD;
-                }
-            } else {
-                eyes += age * HEAD_IN_CHILD * EYES_ON_HEAD;
-            }
-        }
-
-        return eyes;
+        return age > 0 ? countHead(age) * EYES_ON_HEAD : -1;
     }
 }
