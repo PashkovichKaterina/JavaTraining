@@ -1,5 +1,7 @@
 package by.epam.javatraining.pashkovich.maintask01.additionally.model;
 
+import org.apache.log4j.Logger;
+
 /**
  * This class contains different method for work with matrix.
  *
@@ -7,6 +9,9 @@ package by.epam.javatraining.pashkovich.maintask01.additionally.model;
  * @version 1.0.0
  */
 public class MatrixLogic {
+
+    private static final Logger LOGGER = Logger.getRootLogger();
+
     /**
      * This method finds the maximum value in the matrix.
      *
@@ -15,15 +20,24 @@ public class MatrixLogic {
      */
     public static double findMaxValue(double[][] matrix) {
         double max = Double.MIN_VALUE;
+        if (matrix == null) {
+            LOGGER.warn("NullPointer");
+            return max;
+        }
         for (int i = 0; i < matrix.length; ++i) {
-            for (int j = 0; j < matrix[i].length; ++j) {
-                if (matrix[i][j] > max) {
-                    max = matrix[i][j];
+            if (matrix[i] != null) {
+                for (int j = 0; j < matrix[i].length; ++j) {
+                    if (matrix[i][j] > max) {
+                        max = matrix[i][j];
+                    }
                 }
+            }else {
+                LOGGER.warn("NullPointer");
             }
         }
         return max;
     }
+
 
     /**
      * This method finds the minimum value in the matrix.
@@ -33,11 +47,19 @@ public class MatrixLogic {
      */
     public static double findMinValue(double[][] matrix) {
         double min = Double.MAX_VALUE;
+        if (matrix == null) {
+            LOGGER.warn("NullPointer");
+            return min;
+        }
         for (int i = 0; i < matrix.length; ++i) {
-            for (int j = 0; j < matrix[i].length; ++j) {
-                if (matrix[i][j] < min) {
-                    min = matrix[i][j];
+            if (matrix[i] != null) {
+                for (int j = 0; j < matrix[i].length; ++j) {
+                    if (matrix[i][j] < min) {
+                        min = matrix[i][j];
+                    }
                 }
+            }else {
+                LOGGER.warn("NullPointer");
             }
         }
         return min;
@@ -50,11 +72,11 @@ public class MatrixLogic {
      * @return True if the matrix is square, or false if the matrix is not square ot the matrix length is 0
      */
     public static boolean isSquare(double[][] matrix) {
-        if (matrix.length == 0){
+        if (matrix == null || matrix.length == 0) {
             return false;
         }
         for (int i = 0; i < matrix.length; ++i) {
-            if (matrix.length != matrix[i].length) {
+            if (matrix[i] == null || matrix.length != matrix[i].length) {
                 return false;
             }
         }
