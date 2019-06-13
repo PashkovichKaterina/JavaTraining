@@ -31,6 +31,13 @@ public class MatrixLogicTest {
     }
 
     @Test
+    public void testFindMaxValueNull() {
+        double[][] matrix = null;
+        double expected = Double.MIN_VALUE;
+        assertEquals(expected, MatrixLogic.findMaxValue(matrix), 0.1);
+    }
+
+    @Test
     public void testFindMinValue() {
         double[][] matrix = {
                 {5, 97, 4, 6, 4},
@@ -44,6 +51,13 @@ public class MatrixLogicTest {
     @Test
     public void testFindMinValueZero() {
         double[][] matrix = {};
+        double expected = Double.MAX_VALUE;
+        assertEquals(expected, MatrixLogic.findMinValue(matrix), 0.1);
+    }
+
+    @Test
+    public void testFindMinValueNull() {
+        double[][] matrix = null;
         double expected = Double.MAX_VALUE;
         assertEquals(expected, MatrixLogic.findMinValue(matrix), 0.1);
     }
@@ -93,6 +107,13 @@ public class MatrixLogicTest {
     }
 
     @Test
+    public void testIsSquareNull() {
+        double[][] matrix = null;
+        boolean expected = false;
+        assertEquals(expected, MatrixLogic.isSquare(matrix));
+    }
+
+    @Test
     public void testIsSymmetric() {
         double[][] matrix = {
                 {5, 7, 8, 9},
@@ -130,6 +151,13 @@ public class MatrixLogicTest {
     @Test
     public void testIsSymmetricZero() {
         double[][] matrix = {};
+        boolean expected = false;
+        assertEquals(expected, MatrixLogic.isSymmetric(matrix));
+    }
+
+    @Test
+    public void testIsSymmetricNull() {
+        double[][] matrix = null;
         boolean expected = false;
         assertEquals(expected, MatrixLogic.isSymmetric(matrix));
     }
