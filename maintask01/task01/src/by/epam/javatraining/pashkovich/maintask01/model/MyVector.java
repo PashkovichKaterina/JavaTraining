@@ -55,7 +55,7 @@ public class MyVector {
      * @param initialCapasity the initial capacity of the vector
      */
     public MyVector(int initialCapasity) {
-        if (initialCapasity < 0) {
+        if (initialCapasity <= 0) {
             LOGGER.warn("NegativeArraySize");
             capacity = DEFAULT_CAPACITY;
         } else {
