@@ -35,9 +35,9 @@ public class MyVectorTest {
     @Test
     public void testGetSizePositiveAdd() {
         MyVector vector = new MyVector(5);
-        vector.addLast(5, 6);
-        vector.addLast(7, 8, 9, 8, 7, 4, 2);
-        vector.addFirst(5, 6);
+        vector.add(5, 6);
+        vector.add(7, 8, 9, 8, 7, 4, 2);
+        vector.add(5, 6);
         int expected = 11;
         assertEquals(expected, vector.getSize());
     }
@@ -45,7 +45,7 @@ public class MyVectorTest {
     @Test
     public void testGetElementPositiveIndex() {
         MyVector vector = new MyVector(5);
-        vector.addLast(7, 9, 3, 4);
+        vector.add(7, 9, 3, 4);
         double expected = 9;
         assertEquals(expected, vector.getElement(1), 0.1);
     }
@@ -53,7 +53,7 @@ public class MyVectorTest {
     @Test
     public void testGetElementNegativeIndex() {
         MyVector vector = new MyVector(5);
-        vector.addLast(7, 9, 3, 4);
+        vector.add(7, 9, 3, 4);
         double expected = Double.NaN;
         assertEquals(expected, vector.getElement(-5), 0.1);
     }
@@ -61,7 +61,7 @@ public class MyVectorTest {
     @Test
     public void testSetElementPositiveIndex() {
         MyVector vector = new MyVector(5);
-        vector.addLast(7, 9, 3, 4);
+        vector.add(7, 9, 3, 4);
         vector.setElement(2, 8);
         double expected = 8;
         assertEquals(expected, vector.getElement(2), 0.1);
@@ -86,9 +86,9 @@ public class MyVectorTest {
     @Test
     public void testEqualsSize() {
         MyVector vector = new MyVector(5);
-        vector.addFirst(5, 2);
+        vector.add(5, 2);
         MyVector newVector = new MyVector(5);
-        newVector.addFirst(7, 9, 8);
+        newVector.add(7, 9, 8);
         boolean expected = false;
         assertEquals(expected, vector.equals(newVector));
     }
@@ -96,9 +96,9 @@ public class MyVectorTest {
     @Test
     public void testEqualsValues() {
         MyVector vector = new MyVector(5);
-        vector.addFirst(7, 8, 9);
+        vector.add(7, 8, 9);
         MyVector newVector = new MyVector(5);
-        newVector.addLast(7, 8, 9);
+        newVector.add(7, 8, 9);
         boolean expected = true;
         assertEquals(expected, vector.equals(newVector));
     }
@@ -106,7 +106,7 @@ public class MyVectorTest {
     @Test
     public void testFindMax() {
         MyVector vector = new MyVector(5);
-        vector.addLast(7, 9, 3, 4, 7, 3);
+        vector.add(7, 9, 3, 4, 7, 3);
         double expected = 9;
         assertEquals(expected, vector.findMax(), 0.1);
     }
@@ -121,7 +121,7 @@ public class MyVectorTest {
     @Test
     public void testFindMin() {
         MyVector vector = new MyVector(5);
-        vector.addFirst(7, 9, 3, -4, 7, 0);
+        vector.add(7, 9, 3, -4, 7, 0);
         double expected = -4;
         assertEquals(expected, vector.findMin(), 0.1);
     }
@@ -136,7 +136,7 @@ public class MyVectorTest {
     @Test
     public void testCalcArithmeticAverage() {
         MyVector vector = new MyVector();
-        vector.addFirst(5, 12, 6, 1);
+        vector.add(5, 12, 6, 1);
         double expected = 6;
         assertEquals(expected, vector.calcArithmeticAverage(), 0.1);
     }
@@ -151,7 +151,7 @@ public class MyVectorTest {
     @Test
     public void testCalcGeometricAverage() {
         MyVector vector = new MyVector();
-        vector.addFirst(5, 25, 5, 1);
+        vector.add(5, 25, 5, 1);
         double expected = 5;
         assertEquals(expected, vector.calcGeometricAverage(), 0.1);
     }
@@ -166,7 +166,7 @@ public class MyVectorTest {
     @Test
     public void testIsDecreasingDecrease() {
         MyVector vector = new MyVector();
-        vector.addFirst(56, 12, 8, 4, 3);
+        vector.add(56, 12, 8, 4, 3);
         boolean expected = true;
         assertEquals(expected, vector.isDecreasing());
     }
@@ -174,7 +174,7 @@ public class MyVectorTest {
     @Test
     public void testIsDecreasingIncrease() {
         MyVector vector = new MyVector();
-        vector.addFirst(1, 3, 4, 56, 78);
+        vector.add(1, 3, 4, 56, 78);
         boolean expected = false;
         assertEquals(expected, vector.isDecreasing());
     }
@@ -182,7 +182,7 @@ public class MyVectorTest {
     @Test
     public void testIsDecreasingNeither() {
         MyVector vector = new MyVector();
-        vector.addFirst(1, 56, 40, 5, 1);
+        vector.add(1, 56, 40, 5, 1);
         boolean expected = false;
         assertEquals(expected, vector.isDecreasing());
     }
@@ -197,7 +197,7 @@ public class MyVectorTest {
     @Test
     public void testIsIncreasingDecrease() {
         MyVector vector = new MyVector();
-        vector.addFirst(56, 12, 8, 4, 3);
+        vector.add(56, 12, 8, 4, 3);
         boolean expected = false;
         assertEquals(expected, vector.isIncreasing());
     }
@@ -205,7 +205,7 @@ public class MyVectorTest {
     @Test
     public void testIsIncreasingIncrease() {
         MyVector vector = new MyVector();
-        vector.addFirst(1, 3, 4, 56, 78);
+        vector.add(1, 3, 4, 56, 78);
         boolean expected = true;
         assertEquals(expected, vector.isIncreasing());
     }
@@ -213,7 +213,7 @@ public class MyVectorTest {
     @Test
     public void testIsIncreasingNeither() {
         MyVector vector = new MyVector();
-        vector.addFirst(1, 56, 40, 5, 1);
+        vector.add(1, 56, 40, 5, 1);
         double[] array = {1, 56, 40, 5, 1};
         boolean expected = false;
         assertEquals(expected, vector.isIncreasing());
@@ -229,7 +229,7 @@ public class MyVectorTest {
     @Test
     public void testIsOrderedDecrease() {
         MyVector vector = new MyVector();
-        vector.addFirst(89, 45, 23, 12, 5);
+        vector.add(89, 45, 23, 12, 5);
         boolean expected = true;
         assertEquals(expected, vector.isOrdered());
     }
@@ -237,7 +237,7 @@ public class MyVectorTest {
     @Test
     public void testIsOrderedIncrease() {
         MyVector vector = new MyVector();
-        vector.addFirst(5, 6, 46, 78, 90);
+        vector.add(5, 6, 46, 78, 90);
         boolean expected = true;
         assertEquals(expected, vector.isOrdered());
     }
@@ -245,7 +245,7 @@ public class MyVectorTest {
     @Test
     public void testIsOrderedNeither() {
         MyVector vector = new MyVector();
-        vector.addFirst(54, 31, 87, 41, 654);
+        vector.add(54, 31, 87, 41, 654);
         boolean expected = false;
         assertEquals(expected, vector.isOrdered());
     }
@@ -260,7 +260,7 @@ public class MyVectorTest {
     @Test
     public void testFindFirstLocalMinPosition() {
         MyVector vector = new MyVector();
-        vector.addFirst(7, 7, 2, 5, 1, 3);
+        vector.add(7, 7, 2, 5, 1, 3);
         int expected = 2;
         assertEquals(expected, vector.findFirstLocalMinPosition());
     }
@@ -268,7 +268,7 @@ public class MyVectorTest {
     @Test
     public void testFindFirstLocalMinPositionNeither() {
         MyVector vector = new MyVector();
-        vector.addFirst(7, 7, 7, 8, 9, 15);
+        vector.add(7, 7, 7, 8, 9, 15);
         int expected = -1;
         assertEquals(expected, vector.findFirstLocalMinPosition());
     }
@@ -283,7 +283,7 @@ public class MyVectorTest {
     @Test
     public void testFindLastLocalMinPosition() {
         MyVector vector = new MyVector();
-        vector.addFirst(7, 7, 2, 5, 1, 3);
+        vector.add(7, 7, 2, 5, 1, 3);
         int expected = 4;
         assertEquals(expected, vector.findLastLocalMinPosition());
     }
@@ -291,7 +291,7 @@ public class MyVectorTest {
     @Test
     public void testFindLastLocalMinPositionNeither() {
         MyVector vector = new MyVector();
-        vector.addFirst(7, 7, 7, 8, 9, 15);
+        vector.add(7, 7, 7, 8, 9, 15);
         int expected = -1;
         assertEquals(expected, vector.findLastLocalMinPosition());
     }
@@ -306,7 +306,7 @@ public class MyVectorTest {
     @Test
     public void testFindFirstLocalMaxPositionInner() {
         MyVector vector = new MyVector();
-        vector.addFirst(7, 7, 22, 3, 78, 5);
+        vector.add(7, 7, 22, 3, 78, 5);
         int expected = 2;
         assertEquals(expected, vector.findFirstLocalMaxPosition());
     }
@@ -314,7 +314,7 @@ public class MyVectorTest {
     @Test
     public void testFindFirstLocalMaxPositionNeither() {
         MyVector vector = new MyVector();
-        vector.addFirst(7, 7, 7, 8, 8, 2);
+        vector.add(7, 7, 7, 8, 8, 2);
         int expected = -1;
         assertEquals(expected, vector.findFirstLocalMaxPosition());
     }
@@ -329,7 +329,7 @@ public class MyVectorTest {
     @Test
     public void testFindLastLocalMaxPositionInner() {
         MyVector vector = new MyVector();
-        vector.addFirst(7, 7, 22, 3, 78, 5);
+        vector.add(7, 7, 22, 3, 78, 5);
         int expected = 4;
         assertEquals(expected, vector.findLastLocalMaxPosition());
     }
@@ -337,7 +337,7 @@ public class MyVectorTest {
     @Test
     public void testFindLastLocalMaxPositionNeither() {
         MyVector vector = new MyVector();
-        vector.addFirst(7, 7, 7, 8, 8, 2);
+        vector.add(7, 7, 7, 8, 8, 2);
         int expected = -1;
         assertEquals(expected, vector.findLastLocalMaxPosition());
     }
@@ -352,10 +352,10 @@ public class MyVectorTest {
     @Test
     public void testReverse() {
         MyVector vector = new MyVector();
-        vector.addFirst(546, 8, 13, 6, 4, 3125, 9, 4, 31, 4, 645);
+        vector.add(546, 8, 13, 6, 4, 3125, 9, 4, 31, 4, 645);
         vector.reverse();
         MyVector expected = new MyVector();
-        expected.addFirst(645, 4, 31, 4, 9, 3125, 4, 6, 13, 8, 546);
+        expected.add(645, 4, 31, 4, 9, 3125, 4, 6, 13, 8, 546);
         assertTrue(vector.equals(expected));
     }
 
@@ -370,10 +370,10 @@ public class MyVectorTest {
     @Test
     public void testSortBubbleIncrease() {
         MyVector vector = new MyVector();
-        vector.addFirst(5, 7, 54, 9, 52);
+        vector.add(5, 7, 54, 9, 52);
         vector.sortBubbleIncrease();
         MyVector expected = new MyVector();
-        expected.addFirst(5, 7, 9, 52, 54);
+        expected.add(5, 7, 9, 52, 54);
         assertTrue(vector.equals(expected));
     }
 
@@ -388,10 +388,10 @@ public class MyVectorTest {
     @Test
     public void testSortBubbleDecrease() {
         MyVector vector = new MyVector();
-        vector.addFirst(5, 7, 54, 9, 52);
+        vector.add(5, 7, 54, 9, 52);
         vector.sortBubbleDecrease();
         MyVector expected = new MyVector();
-        expected.addFirst(54, 52, 9, 7, 5);
+        expected.add(54, 52, 9, 7, 5);
         assertTrue(vector.equals(expected));
     }
 
@@ -406,10 +406,10 @@ public class MyVectorTest {
     @Test
     public void testSortModify1BubbleIncrease() {
         MyVector vector = new MyVector();
-        vector.addFirst(5, 7, 54, 9, 52);
+        vector.add(5, 7, 54, 9, 52);
         vector.sortModify1BubbleIncrease();
         MyVector expected = new MyVector();
-        expected.addFirst(5, 7, 9, 52, 54);
+        expected.add(5, 7, 9, 52, 54);
         assertTrue(vector.equals(expected));
     }
 
@@ -424,10 +424,10 @@ public class MyVectorTest {
     @Test
     public void testSortModify1BubbleDecrease() {
         MyVector vector = new MyVector();
-        vector.addFirst(5, 7, 54, 9, 52);
+        vector.add(5, 7, 54, 9, 52);
         vector.sortModify1BubbleDecrease();
         MyVector expected = new MyVector();
-        expected.addFirst(54, 52, 9, 7, 5);
+        expected.add(54, 52, 9, 7, 5);
         assertTrue(vector.equals(expected));
     }
 
@@ -442,10 +442,10 @@ public class MyVectorTest {
     @Test
     public void testSortModify2BubbleIncrease() {
         MyVector vector = new MyVector();
-        vector.addFirst(5, 7, 54, 9, 52);
+        vector.add(5, 7, 54, 9, 52);
         vector.sortModify2BubbleIncrease();
         MyVector expected = new MyVector();
-        expected.addFirst(5, 7, 9, 52, 54);
+        expected.add(5, 7, 9, 52, 54);
         assertTrue(vector.equals(expected));
     }
 
@@ -460,10 +460,10 @@ public class MyVectorTest {
     @Test
     public void testSortModify2BubbleDecrease() {
         MyVector vector = new MyVector();
-        vector.addFirst(5, 7, 54, 9, 52);
+        vector.add(5, 7, 54, 9, 52);
         vector.sortModify2BubbleDecrease();
         MyVector expected = new MyVector();
-        expected.addFirst(54, 52, 9, 7, 5);
+        expected.add(54, 52, 9, 7, 5);
         assertTrue(vector.equals(expected));
     }
 
@@ -478,10 +478,10 @@ public class MyVectorTest {
     @Test
     public void testSortInsertionIncrease() {
         MyVector vector = new MyVector();
-        vector.addFirst(5, 7, 54, 9, 52);
+        vector.add(5, 7, 54, 9, 52);
         vector.sortInsertionIncrease();
         MyVector expected = new MyVector();
-        expected.addFirst(5, 7, 9, 52, 54);
+        expected.add(5, 7, 9, 52, 54);
         assertTrue(vector.equals(expected));
     }
 
@@ -496,10 +496,10 @@ public class MyVectorTest {
     @Test
     public void testSortInsertionDecrease() {
         MyVector vector = new MyVector();
-        vector.addFirst(5, 7, 54, 9, 52);
+        vector.add(5, 7, 54, 9, 52);
         vector.sortInsertionDecrease();
         MyVector expected = new MyVector();
-        expected.addFirst(54, 52, 9, 7, 5);
+        expected.add(54, 52, 9, 7, 5);
         assertTrue(vector.equals(expected));
     }
 
@@ -514,10 +514,10 @@ public class MyVectorTest {
     @Test
     public void testSortSelectionDecrease() {
         MyVector vector = new MyVector();
-        vector.addFirst(5, 7, 54, 9, 52);
+        vector.add(5, 7, 54, 9, 52);
         vector.sortSelectionDecrease();
         MyVector expected = new MyVector();
-        expected.addFirst(54, 52, 9, 7, 5);
+        expected.add(54, 52, 9, 7, 5);
         assertTrue(vector.equals(expected));
     }
 
@@ -532,10 +532,10 @@ public class MyVectorTest {
     @Test
     public void testSortSelectionIncrease() {
         MyVector vector = new MyVector();
-        vector.addFirst(5, 7, 54, 9, 52);
+        vector.add(5, 7, 54, 9, 52);
         vector.sortSelectionIncrease();
         MyVector expected = new MyVector();
-        expected.addFirst(5, 7, 9, 52, 54);
+        expected.add(5, 7, 9, 52, 54);
         assertTrue(vector.equals(expected));
     }
 
@@ -550,10 +550,10 @@ public class MyVectorTest {
     @Test
     public void testSortMergeIncrease() {
         MyVector vector = new MyVector();
-        vector.addFirst(5, 7, 54, 9, 52);
+        vector.add(5, 7, 54, 9, 52);
         vector.sortMergeIncrease();
         MyVector expected = new MyVector();
-        expected.addFirst(5, 7, 9, 52, 54);
+        expected.add(5, 7, 9, 52, 54);
         assertTrue(vector.equals(expected));
     }
 
@@ -568,10 +568,10 @@ public class MyVectorTest {
     @Test
     public void testSortMergeDecrease() {
         MyVector vector = new MyVector();
-        vector.addFirst(5, 7, 54, 9, 52);
+        vector.add(5, 7, 54, 9, 52);
         vector.sortMergeDecrease();
         MyVector expected = new MyVector();
-        expected.addFirst(54, 52, 9, 7, 5);
+        expected.add(54, 52, 9, 7, 5);
         assertTrue(vector.equals(expected));
     }
 
@@ -586,10 +586,10 @@ public class MyVectorTest {
     @Test
     public void testSortQuickIncrease() {
         MyVector vector = new MyVector();
-        vector.addFirst(45, 361, 89, 13, 847, 63, 64, 2);
+        vector.add(45, 361, 89, 13, 847, 63, 64, 2);
         vector.sortQuickIncrease();
         MyVector expected = new MyVector();
-        expected.addFirst(2, 13, 45, 63, 64, 89, 361, 847);
+        expected.add(2, 13, 45, 63, 64, 89, 361, 847);
         assertTrue(vector.equals(expected));
     }
 
@@ -604,10 +604,10 @@ public class MyVectorTest {
     @Test
     public void testSortQuickDecrease() {
         MyVector vector = new MyVector();
-        vector.addFirst(45, 361, 89, 13, 847, 63, 64, 2);
+        vector.add(45, 361, 89, 13, 847, 63, 64, 2);
         vector.sortQuickDecrease();
         MyVector expected = new MyVector();
-        expected.addFirst(847, 361, 89, 64, 63, 45, 13, 2);
+        expected.add(847, 361, 89, 64, 63, 45, 13, 2);
         assertTrue(vector.equals(expected));
     }
 
@@ -622,7 +622,7 @@ public class MyVectorTest {
     @Test
     public void testSearchLinearFirst() {
         MyVector vector = new MyVector();
-        vector.addFirst(514, 651, 3, 3, 6487, 3, 694, 65);
+        vector.add(514, 651, 3, 3, 6487, 3, 694, 65);
         double searched = 3;
         int expected = 2;
         assertEquals(expected, vector.searchLinearFirst(searched));
@@ -631,7 +631,7 @@ public class MyVectorTest {
     @Test
     public void testSearchLinearFirstMiss() {
         MyVector vector = new MyVector();
-        vector.addFirst(514, 651, 3, 3, 6487, 3, 694, 65);
+        vector.add(514, 651, 3, 3, 6487, 3, 694, 65);
         double searched = 87;
         int expected = -1;
         assertEquals(expected, vector.searchLinearFirst(searched));
@@ -648,7 +648,7 @@ public class MyVectorTest {
     @Test
     public void testSearchLinearLast() {
         MyVector vector = new MyVector();
-        vector.addFirst(514, 651, 3, 3, 6487, 3, 694, 65);
+        vector.add(514, 651, 3, 3, 6487, 3, 694, 65);
         double searched = 3;
         int expected = 5;
         assertEquals(expected, vector.searchLinearLast(searched));
@@ -657,7 +657,7 @@ public class MyVectorTest {
     @Test
     public void testSearchLinearLastMiss() {
         MyVector vector = new MyVector();
-        vector.addFirst(514, 651, 3, 3, 6487, 3, 694, 65);
+        vector.add(514, 651, 3, 3, 6487, 3, 694, 65);
         double searched = 87;
         int expected = -1;
         assertEquals(expected, vector.searchLinearLast(searched));
@@ -674,7 +674,7 @@ public class MyVectorTest {
     @Test
     public void testSearchBinaryFirst() {
         MyVector vector = new MyVector();
-        vector.addFirst(2, 6, 7, 7, 7, 7, 12, 78);
+        vector.add(2, 6, 7, 7, 7, 7, 12, 78);
         double searched = 7;
         int expected = 2;
         assertEquals(expected, vector.searchBinaryFirst(searched));
@@ -683,7 +683,7 @@ public class MyVectorTest {
     @Test
     public void testSearchBinaryFirstMiss() {
         MyVector vector = new MyVector();
-        vector.addFirst(2, 6, 7, 7, 7, 7, 12, 78);
+        vector.add(2, 6, 7, 7, 7, 7, 12, 78);
         double searched = 15;
         int expected = -1;
         assertEquals(expected, vector.searchBinaryFirst(searched));
@@ -700,7 +700,7 @@ public class MyVectorTest {
     @Test
     public void testSearchBinaryLast() {
         MyVector vector = new MyVector();
-        vector.addFirst(2, 6, 7, 7, 7, 7, 12, 78);
+        vector.add(2, 6, 7, 7, 7, 7, 12, 78);
         double searched = 7;
         int expected = 5;
         assertEquals(expected, vector.searchBinaryLast(searched));
@@ -709,7 +709,7 @@ public class MyVectorTest {
     @Test
     public void testSearchBinaryLastMiss() {
         MyVector vector = new MyVector();
-        vector.addFirst(2, 6, 7, 7, 7, 7, 12, 78);
+        vector.add(2, 6, 7, 7, 7, 7, 12, 78);
         double searched = 15;
         int expected = -1;
         assertEquals(expected, vector.searchBinaryLast(searched));
