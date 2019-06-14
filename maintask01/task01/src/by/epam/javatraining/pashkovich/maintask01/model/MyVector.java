@@ -136,6 +136,10 @@ public class MyVector {
      * @param numbers numbers to be added
      */
     public void addLast(double... numbers) {
+        if (numbers == null){
+            LOGGER.warn("NullPointer");
+            return;
+        }
         while (size + numbers.length > capacity) {
             increaseCapasity();
         }
@@ -151,6 +155,10 @@ public class MyVector {
      * @param numbers numbers to be added
      */
     public void addFirst(double... numbers) {
+        if (numbers == null){
+            LOGGER.warn("NullPointer");
+            return;
+        }
         while (size + numbers.length > capacity) {
             increaseCapasity();
         }
