@@ -55,7 +55,7 @@ public class MyVector {
      * @param initialCapasity the initial capacity of the vector
      */
     public MyVector(int initialCapasity) {
-        if (initialCapasity <= 0) {
+        if (initialCapasity < 0) {
             LOGGER.warn("NegativeArraySize");
             capacity = DEFAULT_CAPACITY;
         } else {
@@ -135,38 +135,16 @@ public class MyVector {
      *
      * @param numbers numbers to be added
      */
-    public void addLast(double... numbers) {
-        if (numbers == null){
+    public void add(double... numbers) {
+        if (numbers == null) {
             LOGGER.warn("NullPointer");
             return;
         }
-        while (size + numbers.length > capacity) {
+        while (size + numbers.length > capacity && capacity < MAX_CAPACITY / 2) {
             increaseCapasity();
         }
-        for (int i = size, j = 0; j < numbers.length; ++i, ++j) {
+        for (int i = size, j = 0; j < numbers.length && i < capacity; ++i, ++j) {
             array[i] = numbers[j];
-        }
-        size += numbers.length;
-    }
-
-    /**
-     * Adds all elements to the begin of this vector, if it is possible to increase the capacity of the vector to the required.
-     *
-     * @param numbers numbers to be added
-     */
-    public void addFirst(double... numbers) {
-        if (numbers == null){
-            LOGGER.warn("NullPointer");
-            return;
-        }
-        while (size + numbers.length > capacity) {
-            increaseCapasity();
-        }
-        for (int i = size - 1; i >= 0; --i) {
-            array[i + numbers.length] = array[i];
-        }
-        for (int i = 0; i < numbers.length; ++i) {
-            array[i] = numbers[i];
         }
         size += numbers.length;
     }
