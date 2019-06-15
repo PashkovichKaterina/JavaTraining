@@ -5,7 +5,8 @@ public class NumberLogic {
         if (number <= 1) {
             return false;
         }
-        for (int i = 2; i <= number / 2; ++i) {
+        int border = number / 2;
+        for (int i = 2; i <= border; ++i) {
             if (number % i == 0) {
                 return false;
             }
