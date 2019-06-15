@@ -19,6 +19,20 @@ public class NumberLogicTest {
         boolean expected = false;
         assertEquals(expected, NumberLogic.isSimple(number));
     }
+    
+    @Test
+    public void testIsSimpleTwo() {
+        int number = 0;
+        boolean expected = false;
+        assertEquals(expected, NumberLogic.isSimple(number));
+    }
+    
+    @Test
+    public void testIsSimpleTwo() {
+        int number = 1;
+        boolean expected = false;
+        assertEquals(expected, NumberLogic.isSimple(number));
+    }
 
     @Test
     public void testIsSimpleNegative() {
