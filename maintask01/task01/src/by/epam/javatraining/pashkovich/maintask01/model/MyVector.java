@@ -157,11 +157,11 @@ public class MyVector {
      */
     @Override
     public String toString() {
-        String str = "";
+        StringBuilder str = new StringBuilder();
         for (int i = 0; i < size; i++) {
-            str += array[i] + " ";
+            str.append(array[i] + " ");
         }
-        return str;
+        return str.toString();
     }
 
     /**
