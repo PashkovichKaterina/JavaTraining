@@ -23,12 +23,13 @@ public class Searched {
 
     private static int findPositionEditionBy(Library library, String parametr) {
         int position = 0;
+        Edition edition1 = library.getElement(position);
         for (int i = 1; i < library.getSize(); i++) {
-            if ((parametr.equals("order")
-                    && library.getElement(i).getOrderCount() > library.getElement(position).getOrderCount())
-                    || (parametr.equals("pageCount")
-                    && library.getElement(i).getPageCount() > library.getElement(position).getPageCount())) {
+            Edition edition2 = library.getElement(i);
+            if ((parametr.equals("order") && edition2.getOrderCount() > edition1.getOrderCount())
+                    || (parametr.equals("pageCount") && edition2.getPageCount() > edition1.getPageCount())) {
                 position = i;
+                edition1 = edition2;
             }
 
         }
@@ -51,13 +52,14 @@ public class Searched {
 
     private static int findPositionBookBy(Library library, String parametr) {
         int position = 0;
+        Edition edition1 = library.getElement(position);
         for (int i = 1; i < library.getSize(); i++) {
+            Edition edition2 = library.getElement(i);
             if (library.getElement(i).getClass() == Book.class
-                    && ((parametr.equals("order")
-                    && library.getElement(i).getOrderCount() > library.getElement(position).getOrderCount())
-                    || (parametr.equals("pageCount")
-                    && library.getElement(i).getPageCount() > library.getElement(position).getPageCount()))) {
+                    && ((parametr.equals("order") && edition2.getOrderCount() > edition1.getOrderCount())
+                    || (parametr.equals("pageCount") && edition2.getPageCount() > edition1.getPageCount()))) {
                 position = i;
+                edition1 = edition2;
             }
         }
         return position;
@@ -79,13 +81,14 @@ public class Searched {
 
     private static int findPositionAlbumBy(Library library, String parametr) {
         int position = 0;
+        Edition edition1 = library.getElement(position);
         for (int i = 1; i < library.getSize(); i++) {
+            Edition edition2 = library.getElement(i);
             if (library.getElement(i).getClass() == Album.class
-                    && (parametr.equals("order")
-                    && library.getElement(i).getOrderCount() > library.getElement(position).getOrderCount())
-                    || (parametr.equals("pageCount")
-                    && library.getElement(i).getPageCount() > library.getElement(position).getPageCount())) {
+                    && (parametr.equals("order") && edition2.getOrderCount() > edition1.getOrderCount())
+                    || (parametr.equals("pageCount") && edition2.getPageCount() > edition1.getPageCount())) {
                 position = i;
+                edition1 = edition2;
             }
         }
         return position;
@@ -107,13 +110,14 @@ public class Searched {
 
     private static int findPositionMagazineBy(Library library, String parametr) {
         int position = 0;
+        Edition edition1 = library.getElement(position);
         for (int i = 1; i < library.getSize(); i++) {
+            Edition edition2 = library.getElement(i);
             if (library.getElement(i).getClass() == Magazine.class
-                    && (parametr.equals("order")
-                    && library.getElement(i).getOrderCount() > library.getElement(position).getOrderCount())
-                    || (parametr.equals("pageCount")
-                    && library.getElement(i).getPageCount() > library.getElement(position).getPageCount())) {
+                    && (parametr.equals("order") && edition2.getOrderCount() > edition1.getOrderCount())
+                    || (parametr.equals("pageCount") && edition2.getPageCount() > edition1.getPageCount())) {
                 position = i;
+                edition1 = edition2;
             }
         }
         return position;
